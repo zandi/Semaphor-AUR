@@ -13,16 +13,18 @@ would be met with the "install the official build and try again" response.
 Thus, we're left essentially repackaging the Spideroak-provided .rpm file.
 
 Two big issues with this:
-#) No obvious signature file or cryptographic digest for the rpm file.
-#) The URL is static for each version.
 
-So, though we can package, we don't have a nice way beyond HTTPS to verify
-the integrity of the package we receive; the checksum in the PKGBUILD is computed
-after we download the rpm, not known before-hand out of channel.
+1. No obvious signature file or cryptographic digest for the rpm file.
 
-Additionally, the URL doesn't change between versions as far as I can tell.
-Instead we need to manually update the cryptographic hash when a new version
-is available. This means that, for every new version, the user will need to
-get a new PKGBUILD. This is bad.
+    We don't have a nice way beyond HTTPS to verify
+    the integrity of the package we receive; the checksum in the PKGBUILD is computed
+    after we download the rpm, not known before-hand out of channel.
+
+2. The URL is static for each version.
+
+    Instead we need to manually update the cryptographic hash when a new version
+    is available. This means that, for every new version, the user will need to
+    get a new PKGBUILD. This is bad.
+
 
 These issues are both up to Spideroak to fix, so hopefully things change soon.
